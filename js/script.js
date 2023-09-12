@@ -1,6 +1,10 @@
 const ul = document.querySelector(".container ul");
 const btnCeck = document.getElementById("btn_check");
+const btnDice = document.getElementById("btn_dice");
 const resultBtn = document.getElementById("result-btn");
+const resultDice = document.getElementById("result-dice");
+const boxFirst = document.getElementById("box-cpu-first");
+const boxSecond = document.getElementById("box-cpu-second");
 
 
 // MAIL
@@ -54,23 +58,45 @@ btnCeck.addEventListener("click",function(){
   resultBtn.innerHTML = text;
 });
 // -------------------------------------------------
-console.log("-----------------");
-console.log("Gioco dei dadi...");
+btnDice.addEventListener("click",function(){
 
-const firstNumRnd = Math.ceil(Math.random() * 6);
-const secondNumRnd = Math.ceil(Math.random() * 6);
+  boxFirst.innerHTML="";
+  boxSecond.innerHTML="";
+  
 
-console.log("n1: " + firstNumRnd);
-console.log("n2: " + secondNumRnd);
+  const firstNumRnd = Math.ceil(Math.random() * 6);
+  const secondNumRnd = Math.ceil(Math.random() * 6);
+
+  // --------------------------------------------------------
+
+  const firstDice = document.createElement("div");
+  firstDice.className = "dice d-flex justify-content-center align-items-center";
+  firstDice.append(firstNumRnd);
+  boxFirst.append(firstDice);
+
+  // --------------------------------------------------------
+
+  const secondDice = document.createElement("div");
+  secondDice.className = "dice d-flex justify-content-center align-items-center";
+  secondDice.append(secondNumRnd);
+  boxSecond.append(secondDice);
+
+  // --------------------------------------------------------
+  
+  let text = "";
+
+  if (firstNumRnd > secondNumRnd){
+    text = "Il primo numero vince";
+  }else
+  if (firstNumRnd < secondNumRnd){
+    text = "Il secondo numero vince";
+  }else{
+    text = "Sono uguali";
+  }
+
+  resultDice.innerHTML = text;
+});
 
 
-if (firstNumRnd > secondNumRnd){
-  console.log("Il primo numero vince");
-}else
-if (firstNumRnd < secondNumRnd){
-  console.log("Il secondo numero vince");
-}else{
-  console.log("Sono uguali");
-}
 
 
