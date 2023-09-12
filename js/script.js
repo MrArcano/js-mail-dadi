@@ -15,17 +15,16 @@ const emailUser = prompt("Inserisci la tua email:");
 
 console.log(emailUser);
 
-let checkFlag = "false";
-
+let checkFlag = false;
 // for
 for(let i = 0; i < emailArray.length; i++){
   if(emailArray[i] === emailUser){
-    checkFlag = "true";
+    checkFlag = true;
   }
 }
 // end for
 
-if (checkFlag="true"){
+if (checkFlag){
   console.log("L'email inserita si trova in elenco puoi entrare");
 }
 
