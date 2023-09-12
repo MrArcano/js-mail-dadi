@@ -3,12 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+  <!-- CCS CUSTOM -->
+  <link rel="stylesheet" href="css/style.css">
+
   <title>JS Mail Dadi</title>
 </head>
 <body>
 
+  <!-- section mail -->
+  <section>
+    <div class="container border my-5 py-3">
+      <h1>EMAIL</h1>
+      <p>Inserisci la tua E-mail per il confronto</p>
   
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="email">@</span>
+        <input type="text" class="form-control" placeholder="E-mail" aria-label="email" aria-describedby="email" id="email-text">
+      </div>
   
+      <button type="button" class="btn btn-primary mb-3" id="btn_check">Verifica</button>
+  
+      <p class="bg-secondary text-bg-dark text-center" id="result-btn"></p>
+  
+      <h3>Lista email:</h3>
+      <ul class="list-group my-3">
+        <!-- lista email -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- section lancio dei dadi -->
+  <section>
+    <button type="button" class="btn btn-primary mb-3" id="btn_dice">Lancia il dado</button>
+  </section>
+
   <script src="js/script.js"></script>
 </body>
 </html>

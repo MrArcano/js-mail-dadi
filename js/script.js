@@ -1,32 +1,58 @@
+const ul = document.querySelector(".container ul");
+const btnCeck = document.getElementById("btn_check");
+const resultBtn = document.getElementById("result-btn");
+
+
 // MAIL
 // -------------------------------------------------
+// creo un array delle mie email
 const emailArray = [
-  "ciao@ciao.it",
-  "ciao1@ciao.it",
-  "ciao2@ciao.it",
-  "ciao3@ciao.it",
-  "ciao4@ciao.it",
-  "ciao5@ciao.it",
-  "ciao6@ciao.it",
-  "ciao7@ciao.it",
-]
+  "pippo@gmail.com",
+  "pluto@gmail.com",
+  "paperone@gmail.com",
+  "qui@gmail.com",
+  "quo@gmail.com",
+  "qua@gmail.com",
+  "paperino@gmail.com",
+  "paperina@gmail.com",
+];
 
-const emailUser = prompt("Inserisci la tua email:");
-let checkFlag = false;
+// Creo una ul>li con tutti gli elementi dell'array email 
 
-// for
 for(let i = 0; i < emailArray.length; i++){
-  if(emailArray[i] === emailUser){
-    checkFlag = true;
-  }
+  const li = document.createElement("li");
+  li.className = "list-group-item";
+  li.append(emailArray[i]);
+  ul.append(li);
 }
-// end for
-console.log("Mail in elenco...");
-console.log(emailArray);
-console.log(emailUser);
-if (checkFlag){
-  console.log("L'email inserita si trova in elenco puoi entrare");
-} 
+
+// evento click del pulsante verifica email
+btnCeck.addEventListener("click",function(){
+
+  const emailUser = document.getElementById("email-text").value;
+ 
+  let checkFlag = false;
+  let text="";
+
+  // for
+  for(let i = 0; i < emailArray.length; i++){
+    if(emailArray[i] === emailUser){
+      checkFlag = true;
+      const liSpecial = document.querySelector("ul li:nth-child(" + (i + 1) +")");
+      liSpecial.style = "text-decoration-line: line-through;"
+      console.log(liSpecial);
+    }
+  }
+  // end for
+
+  if (checkFlag){
+    text = "L'email inserita si trova in elenco puoi entrare";
+  }else{
+    text = "L'email inserita NON si trova in elenco";
+  }
+
+  resultBtn.innerHTML = text;
+});
 // -------------------------------------------------
 console.log("-----------------");
 console.log("Gioco dei dadi...");
@@ -38,13 +64,13 @@ console.log("n1: " + firstNumRnd);
 console.log("n2: " + secondNumRnd);
 
 
-if (firstNumRnd == secondNumRnd){
-  console.log("Sono uguali");
-}else
 if (firstNumRnd > secondNumRnd){
   console.log("Il primo numero vince");
-}else{
+}else
+if (firstNumRnd < secondNumRnd){
   console.log("Il secondo numero vince");
+}else{
+  console.log("Sono uguali");
 }
 
 
