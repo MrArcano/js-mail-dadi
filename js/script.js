@@ -51,10 +51,14 @@ btnCeck.addEventListener("click",function(){
 
   if (checkFlag){
     text = "L'email inserita si trova in elenco puoi entrare";
+    resultBtn.classList.add("bg-success");
+    resultBtn.classList.remove("bg-danger");
   }else{
     text = "L'email inserita NON si trova in elenco";
+    resultBtn.classList.add("bg-danger");
+    resultBtn.classList.remove("bg-success");
   }
-
+  resultBtn.classList.add("py-3");
   resultBtn.innerHTML = text;
 });
 // -------------------------------------------------
