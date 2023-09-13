@@ -98,6 +98,7 @@ btnDice.addEventListener("click",function(){
     text = "Sono uguali";
   }
 
+  resultDice.classList.add("py-3");
   resultDice.innerHTML = text;
 });
 
